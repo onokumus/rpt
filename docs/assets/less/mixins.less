@@ -1,0 +1,133 @@
+//
+// Mixins
+// --------------------------------------------------
+
+
+// Utilities
+// -------------------------
+
+// Clearfix
+// Source: http://nicolasgallagher.com/micro-clearfix-hack/
+//
+// For modern browsers
+// 1. The space content is one way to avoid an Opera bug when the
+//    contenteditable attribute is included anywhere else in the document.
+//    Otherwise it causes space to appear at the top and bottom of elements
+//    that are clearfixed.
+// 2. The use of `table` rather than `block` is only necessary if using
+//    `:before` to contain the top-margins of child elements.
+.clearfix() {
+  &:before,
+  &:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// Webkit-style focus
+.tab-focus() {
+  // Default
+  outline: thin dotted #333;
+  // Webkit
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+// CSS3 PROPERTIES
+// --------------------------------------------------
+
+// Drop shadows
+.box-shadow(@shadow) {
+  -webkit-box-shadow: @shadow; // iOS <4.3 & Android <4.1
+          box-shadow: @shadow;
+}
+
+// Opacity
+.opacity(@opacity) {
+  opacity: @opacity;
+  // IE8 filter
+  @opacity-ie: (@opacity * 100);
+  filter: ~"alpha(opacity=@{opacity-ie})";
+}
+
+// Transitions
+.transition(@transition) {
+  -webkit-transition: @transition;
+     -moz-transition: @transition;
+       -o-transition: @transition;
+          transition: @transition;
+}
+
+// COMPONENT MIXINS
+// --------------------------------------------------
+
+
+// Button psuedo states
+// -------------------------
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+.btn-pseudo-states(@color, @background, @border) {
+  color: @background;
+  background-color: @color;
+  border-color: @border;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    background-color: darken(@background, 5%);
+        border-color: darken(@border, 10%);
+        color: #fff;
+        .transition(background .6s);
+  }
+}
+
+
+// Grid System
+// -----------
+
+// Centered container element
+.container-fixed() {
+  margin-right: auto;
+  margin-left: auto;
+  .clearfix();
+}
+
+// Make a grid
+
+// Creates a wrapper for a series of columns
+.make-row() {
+  // Then clear the floated columns
+  .clearfix();
+
+  @media (min-width: @screen-small) {
+    margin-left:  (@grid-gutter-width / -2);
+    margin-right: (@grid-gutter-width / -2);
+  }
+
+  // Negative margin nested rows out to align the content of columns
+  .row {
+    margin-left:  (@grid-gutter-width / -2);
+    margin-right: (@grid-gutter-width / -2);
+  }
+}
+// Generate the columns
+.make-column(@columns) {
+  position: relative;
+  // Float and set width: 100%; for easy stacking on mobile devices
+  float: left;
+  width: 100%;
+  // Prevent columns from collapsing when empty
+  min-height: 1px;
+  // Inner gutter via padding
+  padding-left:  (@grid-gutter-width / 2);
+  padding-right: (@grid-gutter-width / 2);
+
+  // Calculate width based on number of columns available
+  @media (min-width: @grid-float-breakpoint) {
+    width: percentage((@columns / @grid-columns));
+  }
+}

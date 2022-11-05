@@ -1,0 +1,156 @@
+// Default plan settings
+.plan {
+  margin-bottom: @grid-gutter-width;
+  background-color: #fff;
+  border: 1px solid #dedede;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05); // iOS <4.3 & Android <4.1
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+// Optional heading
+.plan-heading {
+  margin: 0 -(@grid-gutter-width / 2) (@grid-gutter-width / 2);
+  padding: 10px 15px;
+  font-size: 18px;
+  font-weight: 500;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+// Optional footer (stays gray in every modifier class)
+.plan-footer {
+  margin: (@grid-gutter-width / 2) -(@grid-gutter-width / 2) 0;
+  padding: 10px 15px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #ddd;
+  text-align: center;
+  em {
+    display: block;
+    font-style: italic;
+    color: #999999;
+  }
+}
+[class^="col-"] > .plan {
+  > .plan-heading, > .plan-footer {
+    margin: 0;
+  }
+}
+// Plan Overview
+.plan-overview {
+  margin: 0 auto;
+  text-align: center;
+  font-weight: normal;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    display: inline-block;
+    margin: 0 (@grid-gutter-width / 2);
+    li {
+      margin-bottom: 8px;
+      position: relative;
+      text-align: left;
+    }
+  }
+}
+// Plan Price
+.plan-price {
+  text-align: center;
+  color: #777;
+  margin: (@grid-gutter-width) auto (@grid-gutter-width / 2);
+  .period {
+    font-size: 50px;
+    color: #444;
+    margin: (@grid-gutter-width / 2);
+    sup {
+      font-size: 50%;
+      line-height: 0;
+      position: relative;
+      vertical-align: baseline;
+      top: -1em;
+      font-weight: normal;
+    }
+    span {
+      display: inline-block;
+      font-size: 14px;
+      vertical-align: middle;
+    }
+  }
+}
+
+
+// Contextual variations
+.blue {
+  border-color: @blue;
+  .plan-heading {
+    color: #fff;
+    background-color: @blue;
+    border-color: @blue;
+  }
+  .plan-overview li > i {
+        color: @blue;
+  }
+  &:hover .plan-price .period {color: @blue;}
+}
+.green {
+  border-color: @green;
+  .plan-heading {
+    color: #fff;
+    background-color: @green;
+    border-color: @green;
+  }
+  .plan-overview li > i {
+    color: @green;
+  }
+  &:hover .plan-price .period {color: @green;}
+}
+.orange {
+  border-color: @orange;
+  .plan-heading {
+    color: #fff;
+    background-color: @orange;
+    border-color: @orange;
+  }
+  .plan-overview li > i {
+    color: @orange;
+  }
+  &:hover .plan-price .period {color: @orange;}
+}
+.red {
+  border-color: @red;
+  .plan-heading {
+    color: #fff;
+    background-color: @red;
+    border-color: @red;
+  }
+  .plan-overview li > i {
+    color: @red;
+  }
+  &:hover .plan-price .period {color: @red;}
+}
+.magenta {
+  border-color: @magenta;
+  .plan-heading {
+    color: #fff;
+    background-color: @magenta;
+    border-color: @magenta;
+  }
+  .plan-overview li > i {
+    color: @magenta;
+  }
+  &:hover .plan-price .period {color: @magenta;}
+}
+.brown {
+  border-color: @brown;
+  .plan-heading {
+    color: #fff;
+    background-color: @brown;
+    border-color: @brown;
+  }
+  .plan-overview li > i {
+    color: @brown;
+  }
+  &:hover .plan-price .period {color: @brown;}
+}

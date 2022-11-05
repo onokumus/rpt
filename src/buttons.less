@@ -1,0 +1,81 @@
+//
+// Buttons
+// --------------------------------------------------
+
+
+// Base styles
+// --------------------------------------------------
+
+// Core styles
+.button {
+  display: inline-block;
+  padding: 8px 12px;
+  margin-bottom: 0; 
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  white-space: nowrap;
+
+  &:focus {
+    .tab-focus();
+  }
+
+  &:hover,
+  &:focus {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  &:active,
+  &.active {
+    outline: 0;
+    background-image: none;
+    .box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+  }
+}
+
+
+// Alternate buttons
+// --------------------------------------------------
+
+.button {
+  .btn-pseudo-states(#fff, @default, @default-dark);
+}
+.button.blue {
+  .btn-pseudo-states(#fff, @blue, @blue-dark);
+}
+.button.brown {
+  .btn-pseudo-states(#fff, @brown, @brown-dark);
+}
+.button.red {
+  .btn-pseudo-states(#fff, @red, @red-dark);
+}
+.button.green {
+  .btn-pseudo-states(#fff, @green, @green-dark);
+}
+.button.orange {
+  .btn-pseudo-states(#fff, @orange, @orange-dark);
+}
+.button.magenta {
+  .btn-pseudo-states(#fff, @magenta, @magenta-dark);
+}
+
+
+
+
+// Button Sizes
+// --------------------------------------------------
+
+.btn-large {
+  padding: @padding-large-vertical @padding-large-horizontal;
+  font-size: @font-size-large;
+}
+.btn-small {
+  padding: @padding-small-vertical @padding-small-horizontal;
+  font-size: @font-size-small;
+  line-height: 1.5; // ensure proper height of button next to small input
+}
